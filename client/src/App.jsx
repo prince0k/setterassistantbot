@@ -46,7 +46,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0d1117] text-slate-100 flex flex-col selection:bg-emerald-500 selection:text-white">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white">
       {/* Top Header matching reference image */}
       <Header
         activeTab={activeTab}
@@ -91,16 +91,16 @@ export default function App() {
       />
 
       {/* Footer */}
-      <footer className="border-t border-slate-800/80 bg-[#161b22]/50 py-4 text-center text-xs text-slate-500">
+      <footer className="border-t border-slate-200 bg-white/80 py-4 text-center text-xs text-slate-500">
         <div className="max-w-5xl mx-auto px-4 flex flex-wrap items-center justify-between gap-2">
-          <span>DMSetterAssistantnew &middot; Alex Neilan Sustainable Change Spin</span>
+          <span className="font-medium text-slate-600">DMSetterAssistantnew &middot; Alex Neilan Sustainable Change Spin</span>
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1.5">
-              <span className={`w-1.5 h-1.5 rounded-full ${backendConnected ? 'bg-emerald-400' : 'bg-rose-400'}`} />
-              {backendConnected ? 'API Connected' : 'Connecting to API'}
+              <span className={`w-2 h-2 rounded-full ${backendConnected ? 'bg-emerald-500' : 'bg-rose-500'}`} />
+              <span className="text-slate-600">{backendConnected ? 'API Connected' : 'Connecting to API'}</span>
             </span>
-            <span>&middot;</span>
-            <span>Ready for Vercel + Render + Supabase</span>
+            <span className="text-slate-300">&middot;</span>
+            <span className="text-slate-500">Vercel + Render + Supabase</span>
           </div>
         </div>
       </footer>
