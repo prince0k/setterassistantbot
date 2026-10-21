@@ -5,12 +5,18 @@ import SpinManager from './components/SpinManager';
 import GoldStandards from './components/GoldStandards';
 import SettingsModal from './components/SettingsModal';
 import LoginPage from './components/LoginPage';
+import PendingApprovalScreen from './components/PendingApprovalScreen';
+import AdminApprovalsTab from './components/AdminApprovalsTab';
 import { fetchHealth, fetchSpin, fetchGoldStandards } from './api';
 import { supabase } from './supabaseClient';
+import { checkUserApproval } from './authService';
 
 export default function App() {
   const [session, setSession] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
+  const [isApproved, setIsApproved] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [approvalLoading, setApprovalLoading] = useState(false);
 
   const [activeTab, setActiveTab] = useState('scratchpad');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -20,17 +26,46 @@ export default function App() {
   const [goldStandards, setGoldStandards] = useState([]);
   const [backendConnected, setBackendConnected] = useState(false);
 
+  const verifyUserApproval = async (userEmail) => {
+    if (!userEmail) {
+      setIsApproved(false);
+      setIsAdmin(false);
+      return false;
+    }
+    setApprovalLoading(true);
+    try {
+      const { isApproved: approved, isAdmin: admin } = await checkUserApproval(userEmail);
+      setIsApproved(approved);
+      setIsAdmin(admin);
+      return approved;
+    } catch (err) {
+      console.warn('Approval check error:', err);
+      return false;
+    } finally {
+      setApprovalLoading(false);
+    }
+  };
+
   // Monitor Supabase Auth state
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session);
+      if (session?.user?.email) {
+        await verifyUserApproval(session.user.email);
+      }
       setAuthLoading(false);
     });
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setSession(session);
+      if (session?.user?.email) {
+        await verifyUserApproval(session.user.email);
+      } else {
+        setIsApproved(false);
+        setIsAdmin(false);
+      }
       setAuthLoading(false);
     });
 
@@ -55,7 +90,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (session) {
+    if (session && isApproved) {
       loadData();
       const interval = setInterval(async () => {
         try {
@@ -67,19 +102,21 @@ export default function App() {
       }, 15000);
       return () => clearInterval(interval);
     }
-  }, [session]);
+  }, [session, isApproved]);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setSession(null);
+    setIsApproved(false);
+    setIsAdmin(false);
   };
 
   // Auth Loading Screen
-  if (authLoading) {
+  if (authLoading || (session && approvalLoading)) {
     return (
       <div className="min-h-screen bg-[#f8fafc] flex flex-col items-center justify-center gap-3">
         <div className="w-8 h-8 border-3 border-emerald-600 border-t-transparent rounded-full animate-spin" />
-        <span className="text-xs font-medium text-slate-500">Checking setter session...</span>
+        <span className="text-xs font-medium text-slate-500">Checking setter session & permissions...</span>
       </div>
     );
   }
@@ -89,7 +126,18 @@ export default function App() {
     return <LoginPage onLoginSuccess={(sess) => setSession(sess)} />;
   }
 
-  // Authenticated Setter Dashboard
+  // If logged in but NOT approved by admin, show Pending Screen
+  if (!isApproved) {
+    return (
+      <PendingApprovalScreen
+        user={session.user}
+        onCheckStatus={() => verifyUserApproval(session.user.email)}
+        onLogout={handleLogout}
+      />
+    );
+  }
+
+  // Authenticated & Approved Setter Dashboard
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white">
       {/* Top Header matching reference image */}
@@ -100,6 +148,7 @@ export default function App() {
         currentModel={currentModel}
         backendConnected={backendConnected}
         user={session.user}
+        isAdmin={isAdmin}
         onLogout={handleLogout}
       />
 
@@ -125,6 +174,10 @@ export default function App() {
             goldStandards={goldStandards}
             onRefresh={loadData}
           />
+        )}
+
+        {activeTab === 'approvals' && isAdmin && (
+          <AdminApprovalsTab />
         )}
       </main>
 

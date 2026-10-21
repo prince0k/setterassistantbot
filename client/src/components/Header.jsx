@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Settings, BookOpen, MessageSquare, Award, ChevronRight, Zap, LogOut, User } from 'lucide-react';
+import { Sparkles, Settings, BookOpen, MessageSquare, Award, ChevronRight, Zap, LogOut, User, ShieldCheck } from 'lucide-react';
 
 export default function Header({
   activeTab,
@@ -8,6 +8,7 @@ export default function Header({
   currentModel,
   backendConnected,
   user,
+  isAdmin,
   onLogout
 }) {
   return (
@@ -94,6 +95,20 @@ export default function Header({
               <Award className="w-3.5 h-3.5 text-amber-500" />
               <span>Gold Bank</span>
             </button>
+
+            {isAdmin && (
+              <button
+                onClick={() => setActiveTab('approvals')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+                  activeTab === 'approvals'
+                    ? 'bg-purple-600 text-white shadow-xs font-semibold'
+                    : 'text-purple-700 bg-purple-50/80 hover:bg-purple-100 font-medium'
+                }`}
+              >
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Team Approvals</span>
+              </button>
+            )}
           </nav>
 
           {/* Quick Action Pill from Screenshot: Rates */}
@@ -118,9 +133,14 @@ export default function Header({
           {/* User Profile & Logout */}
           {user && (
             <div className="flex items-center gap-1.5 pl-1 border-l border-slate-200">
-              <span className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-xl max-w-[140px] truncate font-medium flex items-center gap-1" title={user.email}>
+              <span className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-xl max-w-[160px] truncate font-medium flex items-center gap-1" title={user.email}>
                 <User className="w-3 h-3 text-slate-400 shrink-0" />
                 <span className="truncate">{user.email?.split('@')[0]}</span>
+                {isAdmin && (
+                  <span className="bg-purple-100 text-purple-800 text-[10px] font-bold px-1.5 py-0.2 rounded shrink-0">
+                    Admin
+                  </span>
+                )}
               </span>
               <button
                 onClick={onLogout}
