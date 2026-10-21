@@ -37,7 +37,7 @@ const SAMPLE_CHATS = [
   }
 ];
 
-export default function Scratchpad({ currentModel, onSaveGoldSuccess }) {
+export default function Scratchpad({ currentModel, apiKey, onSaveGoldSuccess }) {
   const [conversationText, setConversationText] = useState('');
   const [customInstructions, setCustomInstructions] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -59,7 +59,8 @@ export default function Scratchpad({ currentModel, onSaveGoldSuccess }) {
       const data = await generateSetterReply({
         conversationText,
         customInstructions,
-        modelName: currentModel
+        modelName: currentModel,
+        apiKey: apiKey || undefined
       });
       setResult(data);
       setActiveOptionTab('direct');

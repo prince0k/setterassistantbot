@@ -61,6 +61,7 @@ export default function App() {
         {activeTab === 'scratchpad' && (
           <Scratchpad
             currentModel={currentModel}
+            apiKey={apiKey}
             onSaveGoldSuccess={loadData}
           />
         )}
