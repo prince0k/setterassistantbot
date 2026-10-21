@@ -1,0 +1,28 @@
+[
+  {
+    "id": "hist_1792586558645",
+    "created_at": "2026-10-21T12:42:38.645Z",
+    "lead_name": "Jane",
+    "conversation_snippet": "Drop a Dress\n Sent from +447738727565\n  to Setters SMS 4\nToday, 10:43 AM BST\nYS\nGood Morning Jane, hope you're well!\n\nThere's a couple of Easy To Follow Fat Loss Cheat Sheets I can send you right away so you know what to focus on first, but first of all, How much weight are you aiming to lose ideally?\nYuvraj Singh\n used Setters SMS 4 to send\n to +447738727565\nToday, 10:44 AM BST\nJE\n4 stone to start with\n Sent from +447738727565\n  to Setters SMS 4\nToday, 11:19 AM BST\nYS\nI am with you Jane, just s",
+    "stage": "Stage 3: Previous Diets & Knowledge Gaps",
+    "replies": {
+      "direct": "I am with you Jane, The truth is, popular diets that aren't tailored to you aren't sustainable and more often than not they're actually more damaging for your health than anything else. Many of them can lead to high blood pressure and an increased risk of heart disease. These diets can also leave you feeling like a failure. It's all because these methods weren't sustainable, That means it wasn't your fault. It was that the methodology was never sustainable. It is important that you see that to stop you from beating yourself up anymore. That being said, I also need to know, what age were you when your weight was first on your radar for the very first time? and what age are you now?",
+      "empathetic": "I hear you Jane, it sounds like you've really been through the wringer with all these diets, especially with the injections making you not want to eat or drink anything. That's a huge sign that those methods weren't just unsustainable, they were downright punishing! It's absolutely not your fault that they didn't stick, as those approaches often leave us feeling deprived and even more disheartened. It’s no wonder you feel down about your food choices too when you've been so restricted. To get a better sense of this journey, what age were you when your weight first became a concern for you? And what age are you now?",
+      "short": "Wow Jane, that's quite the list of diets you've tried! Sounds like they really put you through it and weren't sustainable long-term. How many years in total have you been trying to lose this weight?"
+    },
+    "rationale": "The lead has listed a history of extreme and unsustainable diets. This reply validates her past struggles, emphatically shifts the blame from her to the flawed methodologies, and highlights the damaging nature of such diets. It then transitions directly into establishing the duration of her struggle by asking about her age, which is crucial for building urgency in the upcoming 'WHY NOW' stage."
+  },
+  {
+    "id": "hist_1792586097300",
+    "created_at": "2026-10-21T12:34:57.300Z",
+    "lead_name": "Emma",
+    "conversation_snippet": "Alex: What would you say is making it difficult for you to lose 2 stone & keep it off sustainably?\nEmma: Honestly it feels like self sabotage. Every time I get some momentum I start comfort eating in the evenings because of work stress.",
+    "stage": "stage_2_obstacle_deep_dives",
+    "replies": {
+      "direct": "I hear you Emma, self-sabotage often stems from deeper patterns, and comfort eating from stress is a classic example. Stress is one of the major weight loss inhibiting factors due to changes in cortisol levels. Is your work stress due to your current working role being quite stressful and challenging on a regular basis? Or do you have other responsibilities adding to that pressure?",
+      "empathetic": "Oh Emma, I really hear you. That feeling of self-sabotage, especially when you're getting momentum, is incredibly frustrating and so many women resonate with that. It's almost like you're fighting against yourself, isn't it? And then coupling that with comfort eating because of work stress just adds another layer. To get a better understanding of what's going on, could you provide some insights about your eating habits? Or what do your daily meals look like? Also, how are your energy levels throughout the day?",
+      "short": "I hear you Emma. Is that work stress mainly due to your job role, or are there other responsibilities making things tough?"
+    },
+    "rationale": "Emma has identified 'self sabotage' and 'comfort eating' as barriers, explicitly linking the latter to 'work stress'. The direct reply immediately deep-dives into the nature of her stress (following the 'Stress' script) as it's the stated root cause for the comfort eating. The empathetic reply validates her feelings around self-sabotage and the struggle, then broadens the diagnostic to her overall eating habits and energy levels (following the 'Comfort/Boredom Eating' script), which are also influenced by stress. The short reply offers a quick, casual follow-up on the stress component to keep momentum."
+  }
+]

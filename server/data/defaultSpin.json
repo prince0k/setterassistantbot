@@ -1,0 +1,217 @@
+{
+  "title": "Alex Neilan - Sustainable Change Sales Spin",
+  "author": "Alex Neilan (@alexneilan)",
+  "rules": {
+    "conversion_rate": "1 stone = 14 lbs = 6.35 kg",
+    "qualification_bmi": "27 BMI+ or at least 9 kgs (1.5 stone) to lose to qualify for 1-on-1 support call",
+    "low_bmi_note": "If lead has less than 29 BMI or <= 1 stone to lose, write 'One stone VETT later' in notes",
+    "disqualification_criteria": "Average salary < £35,000 GBP/year, active financial stress, Single Mum, or low finance red flags -> send Vett / Scholarship Vett instead of booking call directly"
+  },
+  "stages": [
+    {
+      "id": "stage_0_initial_weight",
+      "name": "Stage 0: Initial Weight & Height / Qualification",
+      "description": "Establish target weight loss and gather height/weight to calculate BMI and tailor the approach.",
+      "scripts": [
+        "Alright [FirstName], Just so I know what to send you first, how much weight do you need to lose ideally?",
+        "[FirstName], how much weight do you need to lose ideally?",
+        "Alright [FirstName], just for clarity could you tell me your current body weight and height? As this completely changes what I need to send you first."
+      ],
+      "notes": "Ask current body weight and height only when they have less than or equal to 1 stone to lose. Write 'One stone VETT later' in notes if lead has less than 29 BMI."
+    },
+    {
+      "id": "stage_1_barriers",
+      "name": "Stage 1: Question 1 - Core Barriers",
+      "description": "Diagnose the initial primary reason why losing weight and keeping it off has been difficult.",
+      "scripts": [
+        "Alright [FirstName], What would you say is making it difficult for you to lose 2 stone & keep it off sustainably? Night time cravings? Stress or boredom eating? Injuries? Work related stress & lack of time? menopause? procrastination? You not coming first? Self Sabotage? Low motivation?"
+      ],
+      "followups": [
+        "[FirstName], what do you feel is making it difficult for you to lose this weight and keep it off sustainably?",
+        "Hey [FirstName], are the messages above coming through?"
+      ]
+    },
+    {
+      "id": "stage_2_obstacle_deep_dives",
+      "name": "Stage 2: Question 2 - Obstacle Deep Dives",
+      "description": "Specific empathetic diagnostic response based directly on what obstacle they answered in Question 1.",
+      "categories": {
+        "Injuries": {
+          "script": "[FirstName]. You mentioned injuries. If you could elaborate on this a little for me, please. Is this making stairs or hills difficult? Or where do you notice this the most?"
+        },
+        "Menopause": {
+          "script": "I hear you [FirstName], Menopause is a common struggle among women due to hormonal changes, poor sleep and a reduced metabolic rate! In addition to that, this affects our energy levels, which results in lower motivation to make changes in our day-to-day life... Does that make sense to you? Do you feel menopause is affecting your sleep, energy levels or food choices in any way?",
+          "fup": "[FirstName], is menopause affecting your eating habits, sleep, or energy levels in any way?",
+          "note": "4 stages of Menopause: Premenopause, Perimenopause, Menopause, Post menopause. (Use Age message for pre/post menopause; replace menopause with perimenopause for perimenopausal women)"
+        },
+        "Lack of Willpower": {
+          "script": "Surprisingly, willpower is not something that I want you to focus on just now; the perceived requirement of willpower tells me that what you have tried in the past has been a chore or requires discipline, which is usually not sustainable. You can’t hate it or feel deprived during it. Otherwise, it will never be sustainable. We have to also look for ways of making this easier and enjoyable. If it's not enjoyable, you won't sustain it.\n\nOn that note [FirstName], For clarity on your nutrition, could you tell me a bit more about your current food choices? What do your usual meals look like?"
+        },
+        "Eating Habits / Daily Meals": {
+          "script": "I hear you [FirstName]... To get a better understanding of what's going on, could you provide some insights about your eating habits? Or what do your daily meals look like?\n\nAlso, how are your energy levels in the afternoon or evening? Do you ever feel sluggish in the morning?",
+          "fup": "[FirstName], What do your current food choices look like?"
+        },
+        "Lack of Motivation": {
+          "script": "I hear you [FirstName]. Firstly, lack of motivation is something that we definitely need to address. It's a form of self-sabotage.... If I ask you honestly, is this lack of motivation due to past failed attempts, low energy, downplaying the problem, over confidence or fear of failure? What is behind the low motivation?"
+        },
+        "Comfort / Boredom Eating": {
+          "script": "I hear you [FirstName], boredom eating is definitely a slippery slope and after we do it, we beat ourselves up and sometimes even speak to ourselves unkindly. To get a better understanding of what's going on, could you provide some insights about your eating habits? Or what do your daily meals look like?\n\nAlso, how are your energy levels throughout the day?"
+        },
+        "All of the Above": {
+          "script": "[FirstName], I'm impressed by your self-awareness that you can see all of the above are having an impact on you. However, if you had to pinpoint, then which of the above factors do you think you resonated with the most?",
+          "fup": "[FirstName], Which of the above resonated with you the most?"
+        },
+        "Lack of Time": {
+          "script": "I hear you [FirstName], and I completely get that – finding time is a real challenge when you're juggling multiple responsibilities. We all face this struggle but it is most certainly harder for women who get judged for not having a tidy house or for not having everything together, whereas there's rarely judgment if it's a man.\n\nIn Addition to that, People regain weight by saying 'I have to be in the right frame of mind' or 'I don’t have enough time' when facing challenges like work, family, or holidays.\n\nWhat I've learned from experience is that investing a little time upfront to learn more efficient approaches actually saves time in the long run. It's like sharpening an axe before cutting wood – the initial effort pays off ten fold.\n\nMany people also overestimate the time commitment needed. Just 20 minutes 3 times a week can make a meaningful difference IF we are doing the RIGHT things. And here's what I always remind myself: if we don't make time for our health now, we will eventually be forced to make time for illness. And this is true for everybody. I've spoken to ladies size 12 with weight-related strokes.\n\nCan you resonate with any of that? :)",
+          "fup": "[FirstName], is lack of time due to your current working role? Or do you have other responsibilities?"
+        },
+        "Stress": {
+          "script": "I hear you [FirstName], Stress is one of the major weight loss inhibiting factors due to the changes in cortisol levels, is your stress due to your current working role? I mean is it quite stressful and challenging on a regular basis? Or do you have other responsibilities?",
+          "fup": "[FirstName], is your stress level high due to your current working role?"
+        },
+        "Post Menopausal": {
+          "script": "I hear you [FirstName], Weight loss definitely becomes harder or more complex with age as the hormonal changes can indeed add another layer of complexity... For clarity on your daily nutrition, could you tell me a bit more about your current food choices?? What do your daily meals look like?\n\nAlso, how are your energy levels in the late afternoon or evening? Do you ever find it hard to get up in the morning?"
+        },
+        "Underactive Thyroid": {
+          "script": "I hear you [FirstName], An Underactive thyroid can certainly makes things harder, but it's important that we don't believe that it will stop us from succeeding. It's very important that you know that now… Do you feel this is affecting your metabolic rate, eating habits, or energy levels in any way?",
+          "fup": "[FirstName], do you feel your metabolic rate along with energy levels is getting affected by underactive thyroid?"
+        },
+        "Osteoarthritis": {
+          "script": "I hear you [FirstName], Osteoarthritis tends to add another layer of complexity when it comes to weight loss due to inflammation and joint pain. What everyday things are now becoming more difficult as a result of it?"
+        },
+        "Fibromyalgia": {
+          "script": "I hear you [FirstName], and fibro can be horrendous to deal with every day, living a life in pain or with low energy.It also tends to add another layer of complexity when it comes to weight loss due to its effects on muscles and joints throughout the body... Do you feel it is affecting your energy, motivation or sleep patterns in any way?"
+        },
+        "Diabetes": {
+          "script": "I hear you [FirstName], and I know it must be really tough for you to deal with this everyday because diabetes tends to add another layer of complexity when it comes to weight loss due to its effects on insulin levels and metabolism... Do you feel it is affecting your energy levels or food choices in any way?"
+        },
+        "Sciatica": {
+          "script": "I hear you [FirstName], and I know it must be extremely painful for you to deal with sciatica everyday. Sciatica tends to add another layer of complexity when it comes to weight loss due to its effects on lower back or lower body via the nerves.. Do you feel it is causing any mobility issues or restricting your physical activity in any way?"
+        },
+        "Not in Right Frame of Mind": {
+          "script": "Thanks for sharing that. When someone says, \"I'm not in the right frame of mind,\" it's usually because they're either overloaded or they feel like they're being pulled from pillar to post with one responsibility after another.\nI hope you don't mind me challenging you but i’m doing it from a place of care what I mean by this is that the nicest possible way, is that you'll never be in the right of my mind. We also never miraculously become motivated. Movement creates motivation and similarly it's weight loss and self-development that actually, ironically, moves you into the right frame of mind. Also if we don't learn how to progress through times of challenge, then we're not battle-tested. That means that when inevitably life does throw curveballs at us, we are immediately sidelined and we regain the weight anyway. The ONLY way to make weight loss sustainable is learning how to do it DURING challenges. Couple this with improving energy, stress and sleep management plus overwhelm-reduction hacks, and these strategies drastically improve your coping skills.\n\nThis makes you a force to be reckoned with regardless of your professional success.\n\nBy the way, does that makes sense? :)"
+        },
+        "Procrastination": {
+          "script": "Procrastination only ever happens for one of three reasons:\n1. We downplay the problem or trivialise it, this happens usually when we're overconfident or say, \"I know what I need to do.\" Even though if we haven't got the results that we want, it's a clear indicator that there are blind spots and things that we're not seeing.\n2. We don't put ourselves first.\n3. Deep down, we're afraid we'll fail, even though ironically, by not trying, we fail by default.\nWhich of these three do you think it is?"
+        },
+        "Not Coming First": {
+          "script": "I'm not gonna say it's easy to prioritize yourself, because it's not. Society molds women in a way that associates guilt with self-prioritization. Work and family come first. You're the fixer.\n\nThe truth is, if we don't see the wood from the trees, then it becomes harder and harder for us to have the energy, mobility, and health to continue to help the people in life who matter. It's about foresight. Foresight to see that self-prioritization enables you to be able for longer to continue to help and support family. Can you see that?"
+        },
+        "Self Sabotage": {
+          "script": "Self-sabotage has a variety of forms:\n- undoing the hard work of exercise by eating high-calorie food\n- putting up resistance\n- not trusting or being skeptical\n- sometimes being overconfident\n- taking the foot off the gas after we've lost a certain amount of weight\nThis will never be addressed by \"eat less, move more.\" and then every time we regain the weight, we feel like a failure. Does that make sense at all?"
+        }
+      }
+    },
+    {
+      "id": "stage_3_previous_diets_and_knowledge_gaps",
+      "name": "Stage 3: Previous Diets & Knowledge Gaps",
+      "description": "Examine past diets and transition into the Knowledge Gap regarding age, metabolic rate, and outdated methods.",
+      "scripts": {
+        "main": "That does tell me a few things right away, and there's also going to be blind spots and nutritional gaps, that you're not aware of. If there were no nutritional gaps, then you'd already have the results that you want. What plans or diets have you tried in the past that didn't work for you longterm? And were these personalised?",
+        "followups": [
+          "[FirstName], have you tried anything in the past to lose this weight??",
+          "[FirstName], what plans or diets have you tried in the past that didn’t work for you long-term?",
+          "[FirstName]?"
+        ],
+        "optional_shallow_reply": "Alright, how was your experience with them? Anything that didn't work out when you tried them? Also, your thoughts about their sustainability?",
+        "age_knowledge_gap": "[FirstName], When people usually come to me, it's because they've come to the realization that as we get older it gets harder, so \"eating less and moving more\" doesn't cut it anymore, there's usually more at play such as metabolic changes due to hormones, menopause, self-limiting beliefs or adherence to outdated methods…OR blind spots like I mentioned earlier!\n\nThat being said, I also need to know, what age were you when your weight was first on your radar for the very first time? and what age are you now?",
+        "unsustainable_diets_gap": "I am with you [FirstName], The truth is, popular diets that aren't tailored to you aren't sustainable and more often than not they're actually more damaging for your health than anything else. Many of them can lead to high blood pressure and an increased risk of heart disease. These diets can also leave you feeling like a failure. It's all because these methods weren't sustainable, That means it wasn't your fault. It was that the methodology was never sustainable. It is important that you see that to stop you from beating yourself up anymore.\n\nThat being said, I also need to know, what age were you when your weight was first on your radar for the very first time? and what age are you now?",
+        "combined_menopause_diets_gap": "I’m with you on this [FirstName], The truth is, popular diets that aren't tailored to you aren't sustainable and more often than not, they're actually more damaging for your health than anything else. When people usually come to me, it's because they've come to the realization that as we get older it gets harder, so \"eating less and moving more\" doesn't cut it anymore, there's usually more at play such as metabolic changes due to hormones, menopause, self-limiting beliefs or adherence to outdated methods…OR blind spots like I mentioned earlier!\n\nThat being said, I also need to know, what age were you when your weight was first on your radar for the very first time? and what age are you now?",
+        "fup_duration": "[FirstName], basically what I’m trying to ask is, how long have you been struggling with this weight??",
+        "no_exact_number": "I hear you, [FirstName]. Just to get a deeper sense of what's going on, how long has it really been, since your weight has been going up and down? How many years in total have you been trying to lose this weight?"
+      }
+    },
+    {
+      "id": "stage_4_why_now",
+      "name": "Stage 4: WHY NOW (Urgency & Driving Reasons)",
+      "description": "Establish why solving this now is critical before health degrades further.",
+      "scripts": {
+        "normal": "A great way of looking at this is: if the fan belt in our car starts to make noise, we don't wait X number of years before we address it. We bring it to the garage before things become worse. When it comes to our weight, it's so easy to put things off or become overconfident because life or work gets in the way and family keeps coming first. While this might be difficult to look at, it's one of the strongest ways to prevent you from losing any more time.\n\nOne powerful way to create change is acknowledging what would happen if this was to keep getting worse. So if i ask you honestly where do you think you’d be in 5 years time if this was to keep getting worse? What are your 3 reasons as to why you want to make this a priority? WHY NOW?",
+        "with_years": "{Years} Years?? That’s over {Weeks} weeks [FirstName]... And if it's been going on that long, the time for thinking about it is long gone as this is already taken up far too much headspace!\n\nAnother real challenge is that weight gain happens slowly. We don’t expect the weight to go up but because it gets consistently harder as we get older it inevitably does keep going up despite our best efforts. What worked in the past stops working.\n\nOne powerful way to create change is acknowledging what would happen if this was to keep getting worse. So if i ask you honestly where do you think you’d be in 5 years time if this was to keep getting worse? What are your 3 reasons as to why you want to make this a priority? WHY NOW?",
+        "oversharers": "{Years} years, That’s quite a long struggle [FirstName], this obviously will have taken up a lot of headspace as well… I feel as if you’ve touched on this already, but if I ask you honestly, what are your 3 WHYs to lose this weight now & keep it off sustainably for the rest of your life? Three reasons that motivate you to make this change now before it becomes even harder for you to fix?",
+        "december_exclusive": "{Years} years, that's over {Weeks} weeks. [FirstName], I also want to commend you on the fact that you've been proactive with this. So many people put this off until the 'new year, new me' facade kicks in. And ultimately, this leads to us never being battle-tested, because learning how to progress in times of challenge is actually essential if we want this to be sustainable.\n\nChristmas comes around every year, and the last thing you want is to be starting in January a stone heavier. So, well done on being proactive and not falling for the 'new year, new me' facade!\n\nNow, if I ask you honestly, what are your reasons for not putting this off or falling for the 'new year, new me' facade? Why is addressing this now a priority to you? WHY NOW?",
+        "followups": [
+          "[FirstName], What would be your top 3 WHYs to lose this weight and keep it off sustainably for the rest of your life?",
+          "The truth is, if we don't understand our WHYs, or why changing something is genuinely important to us, it means we kind of just go about our day-to-day and just put the thoughts about our weight on a back burner. So, tell me, What are your 3 WHYs to lose this weight now??"
+        ]
+      }
+    },
+    {
+      "id": "stage_5_pain_and_medical",
+      "name": "Stage 5: Pain Generation & Medical History",
+      "description": "Deepen the emotional pain/safeguarding motivation and check family medical history.",
+      "scripts": {
+        "pain_generating": "Addressing this is obviously important to you, especially considering your {POINTS_FROM_3_WHYS}! Just to get a deeper sense of what's going on... In what scenarios do you feel self-conscious about your weight? Also our health is often more fragile than we think. I don't want to do a health scare before we prioritize this. What health conditions in particular are you looking to avoid?, or is it that you want to be proactive in safeguarding your health, or is it both?",
+        "pain_followups": [
+          "[FirstName], When does your weight or health bother you the most in your day-to-day life?",
+          "Hey [FirstName], did My last message coming through?"
+        ],
+        "medical_history": "Lastly, just before I give you some advice, do you have any health conditions that I should be aware of? Or is there any history of heart disease, stroke, cancer or diabetes in the family?",
+        "medical_followups": [
+          "Hey [FirstName], do you have any health issues that I’m not aware of?",
+          "[FirstName]?"
+        ],
+        "frequency_question": "I am with you [FirstName], Lastly just before I give you some advice, how often do you think about this, is it like once a week, once a month? How often do you think about your weight?\n\nLastly, just before I give you some advice, do you have any health conditions that I should be aware of? Or is there any history of heart disease, stroke, cancer or diabetes in the family?"
+      }
+    },
+    {
+      "id": "stage_6_call_pitch",
+      "name": "Stage 6: The 1-on-1 Call Pitch",
+      "description": "Transition the lead onto a complimentary 45-60 min support call to uncover blind spots.",
+      "scripts": {
+        "normal": "Alright [FirstName], Considering what you’ve shared with me so far, this Definitely needs to be addressed on a 1‑on‑1 Weight Loss Support Session because the last thing you want now is to be in the exact same place in 3 months time... Especially when if we don’t make time for our health, we will eventually have to make time for illness later.\n\nWe do this call over the phone (and it is complimentary by the way) to show you your current blindspots in your nutrition, training and behavioural patterns. There are ALWAYS blind spots btw, and showing them to you is the easiest way for you to lose the first stone sustainably.\n\nI've just moved a few things around to open up a few slots because of the extent of what you've already told me …….. The call is about 45-60 minutes and requires you to have a pen/paper to take notes in a quiet place because I want you to get the most out of it. Which time could you make work?\n\nP.S. You will not be sold anything on this call. This is purely about learning more about your current situation and giving you clarity on what needs to change.\nI've got availability between 1:15 pm-6 pm today or tomorrow between 10 am-7 pm. The call is about 10-15 minutes and requires you to have a pen/paper to take notes in a quiet place because I want you to get the most out of it. Which time could you make work?",
+        "scholarship": "Congratulations [FirstName], you've made it to the next round of our Scholarships! The next step is to set up a One-to-one weight loss session. We do this call over the phone (and it is complimentary btw) for us to learn why sustainable weight loss is genuinely a priority to you.\nWe will also identify current gaps or blind spots in your nutrition, training, or your behavioural patterns. Finding a gap is actually a good thing btw, it means we can make a couple of quick and easy changes to help you lose the first 3-6kg relatively easily without overwhelming you.",
+        "medical_history": "Alright [FirstName], so we do have direct family history, the reason why I did ask about family history there, is because this is what most people don't realize... losing weight isn't only about the effort, it's also about how your body is wired. So two people can do the exact same thing - eat the same food, do the same exercises and yet one of them drops weight easily, while the other person doesn't progress, which is really frustrating.\n\nFrom what you’ve shared with me so far, this definitely needs to be addressed on a 1‑on‑1 Weight Loss Support Session because the last thing you want now is to be in the exact same place in 3 months time (When we don’t make time for our health, we will have to make time for Illness later)\n\nI've just opened up a few slots for you …….. The call is about 45-60 minutes and requires you to have a pen/paper to take notes in a quiet place because I want you to get the most out of it. Which of these times could you make work?",
+        "check_confirm_later": "P.S. Our slots for support calls are in quite high demand, especially when they are free just now, so it's possible that times will be changed later and your desired spot will be taken by someone else... So let me know as soon as you can :)",
+        "times_offered_no_booking": "[FirstName], The most important part of this one-to-one session, by the way, is to teach you easy-to-implement strategies on how to reset your metabolism. This will be one of the many reasons why what you're currently doing isn't getting you the results that you want. Let me have a look again and see what times we still have available. Especially considering you've just told me this has been going on for {Years} years OR especially you just told me that there is a direct family medical history. Hang on a sec.\n\n(Pause for 2 mins)\n\nOkay, so I spoken to the team and we've opened up {TIMES}. Which of these can you make work? And I'll see if I can hold that for you.",
+        "rescheduling": "No worries [FirstName], I’ll move a few things around for you, because I know this has been going on for {Years} years and I know it's important to you... I've just opened up a few slots for you (ADD TIMES)... Which time works best for you?"
+      }
+    },
+    {
+      "id": "stage_7_job_vetting_and_disqualification",
+      "name": "Stage 7: Job Vetting & Disqualification",
+      "description": "Evaluate lifestyle, stress, work hours, and financial qualification before confirming booking.",
+      "scripts": {
+        "job_vett": "Lovely [FirstName], well that spot is blocked off for you now :) Also, what are your current external stressors right now? I mean how long are your working hours per week? Are you overworked with high stress? Working Part-time? What's your current job role? (this can also be a stressor btw)",
+        "followups": [
+          "I can't complete the booking until I have the complete picture [FirstName]... What does your working role look like?",
+          "So sorry [FirstName], didn't mean to offend you. It's just that lifestyle factors do really matter and it's important that I have the full picture. What does your working role look like? Are there any other stressors that I should know about?"
+        ],
+        "vett_disqualified_lead": "While our Facebook group is completely free to access, working with us on a 1:1 basis does require an investment. One of our core values is trust and transparency so here’s some more information so you fully understand who we are, what we do, and why we do it.\n\nOur team comprises of a Multidisciplinary team of Health professionals: Dietitians, Medical Consultants, Psychologists, Sleep Specialists, Physiotherapists, Behaviour Change Coaches, Personal Trainers, and Nutritionists. Their collective expertise provides easy-to-follow multifaceted support. Most people are becoming aware that ‘Eat less, move more’ is oversimplified advice that does nothing except make that person feel like a failure. Our team FIND your blind spots to stop the cycle of losing weight and then regaining it again.\n\nAnd here's what you get with the program.\n✅ Sustainable Weight Loss\n✅ Increased Energy Levels\n✅ Removal of all joint pain and mobility reset\n✅ Improved Sleep Quality (this can always be better)\n✅ Behaviour Change Training and Education\n✅ Mindset Reprogramming with research-backed easy to implement Psychological Strategies\n✅ Improved Time Management and Planning\n✅ Lifetime access to our Psychology, Dietetic, Exercise and Weight loss clinics (This is very special)\n✅ Increased confidence for your work and relationships\n✅ Improved finances (we have helped people in government jobs and people who are retired and in their 80s achieve this)\n✅ Education in Nutrition, Training and Mindset (at your own pace)\n✅ 1:1 Professional Help and Support from a multi-disciplinary team of qualified health professionals.\n\nHere are but a few examples of the end result:\nDenny - https://bit.ly/TSD-Denny-shares-how-she-has-made-weight-loss-perminent\nMish - https://bit.ly/how-to-make-weight-loss-sustainable\nAmanda - https://bit.ly/how-amanda-lost-5-stone-sustainably-and-got-promoted\n\nThe combination of the above equates to 10% weight loss which statistically increases life expectancy by 15 years.\n\nThis holistic Multidisciplinary program is £250/month and while the program typically spans 4-7 months, we also extend long-term assistance if needed.\n\nWould that be something you could consider if it meant that you were guaranteed to lose the weight and keep it off sustainably for the rest of your life? Also, please remember that this is also about more than just Sustainable Weight Loss. Hopefully, that comes across from reading the above.",
+        "scholarship_vett": "One of our core values is trust and transparency so here’s some more information so you fully understand who we are, what we do, and why we do it.\n\nOur team comprises a diverse array of professionals: Dietitians, Psychologists, Sleep Specialists, Physiotherapists, Behaviour Change Coaches, Personal Trainers, and Nutritionists. Their collective expertise ensures comprehensive support throughout your journey.\n\nAnd here's what you get with the program:\n🎯 Sustainable Weight Loss\n⚡ Increased Energy Levels\nRemoval of all joint pain and mobility reset\nImproved Sleep Quality (this can always be better)\n📚 Behaviour Change Training and Education\n🧠 Mindset Reprogramming with research-backed easy to implement Psychological Strategies\n⏰ Improved Time Management and Planning\n🎫 Lifetime access to our Psychology, Dietetic, Exercise and Weight loss clinics (This is very special)\n💯 Increased confidence in relationships and career promotions\nImproved finances (we have helped people who are retired and in their 70s achieve this)\n📖 Education in Nutrition, Training and Mindset (at your own pace)\n🤝 1:1 Professional Help and Support from a multi-disciplinary team of qualified health professionals.\n\nHere are but a few examples of the end result:\nDenny - https://bit.ly/TSD-Denny-shares-how-she-has-made-weight-loss-perminent\nMish - https://bit.ly/how-to-make-weight-loss-sustainable\nAmanda- https://bit.ly/how-amanda-lost-5-stone-sustainably-and-got-promoted\n\nThe combination of the above equates to 10% weight loss which statistically increases life expectancy by 15 years.\n\nWith our Scholarship, you're entitled to £300-500 discount on the entire Holistic Sustainable Change Program, and the lowest payment plan would be £225/month. While the program typically spans 3-6 months, we also extend long-term assistance if needed.\n\nPeople who work with us tell us that they see past the investment to see the BENEFIT, especially when they realize what they actually get for the investment.\n\nWould that be something you could consider if it meant that you were guaranteed to lose the weight and keep it off sustainably for the rest of your life? Also, please remember that this is about more than just Sustainable Weight Loss. Hopefully, that comes across from reading the above.",
+        "scholarship_downsell": "I am with you [FirstName], I've been looking through our conversation and based on what you told me I do feel you're eligible for our scholarship Programme! As during this time only, you're entitled to £300-400 discount on the entire Holistic Sustainable Change Program, and the lowest payment plan would be £225/month.... Is that something that you can consider if it 100% guaranteed long term sustainable weight loss?"
+      }
+    },
+    {
+      "id": "stage_8_tps_and_booking",
+      "name": "Stage 8: TPS (Pre-Call Training Pack) & Waitlist",
+      "description": "Deliver the mandatory pre-call video trainings to ensure high show-up and commitment.",
+      "scripts": {
+        "pre_tps": "Thanks for sharing that [FirstName], From what you've shared with me so far, you've been dealing with {XYZPAIN}, would it help if I sent a few short free trainings that would give you some actionable steps on dealing with {XYZPAIN} before your complimentary call?? This is great for building your confidence.",
+        "tps_standard": "Let's go for it [FirstName] :) My Senior Weight Loss Specialist {CLOSER} has blocked off a slot for you in his diary for {DAYTIME}.\n\nThe only thing we require from you in exchange for the consultation call, is a little commitment from your side. There is about 45 minutes of training here so i'd like you to pre plan WHEN you're going to watch these prior to your call, perhaps listen while driving or watch on your lunch break or carve out some time for yourself this evening. Feel free to to break them up into 10 minute segments.\n\nRemember these videos are for YOUR benefit.\n\nAs soon as you've watched these videos below, tell me which lady resonates with YOU and WHY? :)\n\nStep 1: https://bit.ly/SUSTAINABLE-WEIGHT-LOSS-SIMPLIFIED (Don't forget to join the group so you don't lose access to it!)\nStep 2: https://bit.ly/clare-explains-how-she-felt-a-stranger-in-her-own-body-YT\nStep 3: https://bit.ly/How-Lesley-transfomed-from-a-size-16-to-a-10-and-overcame-self-doubt\n\nBonus Step:\nPLEASE NOTE that we need to receive your takeaways at least 60 minutes prior to your call or unfortunately we will need to give your slot away to someone else who is also struggling with their weight, i hope you can understand that.\n\nHope this helps, Alex",
+        "same_day_tps": "Let's go for it [FirstName] :) My Senior Weight Loss Specialist {CLOSER} has set a place for you in his diary for today at {X_PM}.\n\nThe only thing we require from you in exchange for the consultation call is a little commitment from your side. There is about 45 minutes of training here so i'd like you to pre-plan WHEN you're going to watch these prior to your call\n\nRemember these videos are for YOUR benefit.\n\nAs soon as you've watched these videos below, tell me which lady resonates with YOU and WHY? :)\nStep 1: https://drive.google.com/file/d/1CmJiM3GRwgNQXlp4s1p9Rd1TJju03d1n/view?usp=sharing\nStep 2: https://drive.google.com/file/d/1PoYx_9Wh7doGAioMlekaXFarCFcNerFo/view?usp=sharing\nStep 3: https://drive.google.com/file/d/1NL8WJmRkAkls3xbo5GLKpLdq8cmwIBng/view?usp=sharing\n\nHope this helps, Alex",
+        "waitlist_job_vett": "No worries, I'll put you on the waiting list for a 1‑on‑1 Weight Loss Support Session... Also I'm going to send you some resources now to help you get started and progress during busy periods, these will also reduce overwhelm. While I'm pulling them together what are your current external stressors right now? I mean, how long are your working hours? Are you overworked with high stress? Working Part-time? And what’s your working role, please? I'll need that for the notes to put on the waiting list :)"
+      }
+    }
+  ],
+  "objections": {
+    "why_so_many_questions": "[FirstName], at this point I'm just diagnosing why this has been going on for so many years. I know it seems like a lot in terms of the questions, but if we don't fully understand all barriers and obstacles that you're facing (alongside the reasons as to why what you've tried in the past hasn't worked long term well), then we just go around the same cycle of losing some weight, regaining it again. I most certainly do not want you to go through that again because it can be really disheartening. Or worse, we can become overconfident, where we downplay the problem. This is the most common reason so many people struggle with their weight for so long. Either way I'll point you in the right direction with some free advice over the phone and some homework to take away with you. Is that helpful [FirstName]? I'm hoping it is. Also imagine how you're gonna feel in a couple of months' time when you've kept this commitment to yourself and you're well over a stone down.",
+    "group_only_misconception": "About the call - You are right. We don't normally offer calls because they are incredibly limited because they're one-to-one. They're only offered if the person has been struggling for a long time. If we can see three or four things that can be changed immediately as quick wins to really help someone who obviously genuinely needs the help. From the support call alone you will gain understanding as to WHERE you've been going wrong, what your blind spots are or in many cases why the weight has kept coming back on. We only explore working together when it’s genuinely appropriate. If it is, we’ll cover that at the end. Also imagine how you're gonna feel in a couple of months' time when you've kept this commitment to yourself and you're well over a stone down. Is that okay?",
+    "cost_concern_after_times_offered": "Just to reassure you, you will not be sold anything on this first call. This is purely about understanding your current situation and giving you real clarity on what actually needs to change.\n\nOn the call, we will look at where things may have been going wrong, uncover any blind spots, and help you understand why the weight may have kept coming back on despite the fact that you have clearly been trying.\n\nIf and only if we both feel it is a good fit, we can then talk through what ongoing support could look like and the appropriate cost from there.\n\nDoes that sound fair to you?",
+    "cost_concern_before_times_offered": "Great question [FirstName], but to be honest with you, it completely depends on what you need. Everything that we do is 100% personalised and tailored to that individual, everybody is different, and the reasons why you haven't been getting the results that you want will certainly be different from someone else's. What is genuinely exciting, though, is that if we can identify three or four blind spots and things that you're not seeing, and you can then go away and implement what we teach you on the call, well it makes a huge difference over time. It also stops you falling into the cycle of being motivated for a while and slowly regaining the weight again. At the very least, this will help you figure out the gaps right now in your nutrition, training, or your behavioural patterns and from there I'll either point you in the right direction or give you some free advice over the phone and some homework to take away with you. Does that sound fair?",
+    "scam_or_credentials_check": "I understand [FirstName] just to clarify I'm a registered dietitian, if it helps please look over my registration for peace of mind: https://www.hcpc-uk.org/check-the-register/ (Surname - Neilan, Select - Dietitian)...\nI mean we have 500+ documented success stories: https://www.sustainablechange.com/optin-639378651777046643686\nHere’s a glance at our charity work as well: https://www.sustainablechange.com/optin-639359731776875971813\nHere’s a little message from me to give you more clarity on who I am and what we do at Sustainable Change:\nhttps://www.youtube.com/watch?v=O824sYQ2dxU",
+    "negative_review_or_trustpilot": "Hello,\nI understand how seeing a negative review could give you pause. We’re all naturally wired to notice the negative comments over the many positive ones.\n\nWhat I would gently suggest, though, is not to take everything you read online at face value. In our experience, the very small percentage of negative reviews — around 2% — have come from situations where we’ve shown significant flexibility, extended payment plans, additional support, and a great deal of goodwill, and sadly in a few cases that goodwill has unfortunately been taken advantage of.\n\nThat said, the bigger picture matters. We have a 98% success rate and 98% of our reviews are overwhelmingly positive. Those reflect the real experience of the vast majority of people we serve. And realistically, 98% of people can’t all be wrong. We stand by our work and our results.\n\nRather than being influenced by the minority, perhaps the fairest thing to do is to speak with us directly over the phone so you can experience how we operate for yourself. That way, you can make up your own mind based on your own judgement rather than relying solely on what you’ve read online.\n\nDoes that sound fair? And please let me know if you feel I’m being unreasonable. I’m always open to hearing your perspective.",
+    "prefer_email": "Hey [FirstName], I totally get where you're coming from and I actually like emailing myself. The challenge, though, is that things can be interpreted differently over text and can be addressed so much more effectively via a call. Especially when we have so many people reaching out to us, it obviously saves us time and also saves you time as well, particularly when our support calls are so detailed and tailored to the individual. There’s just so much that goes into it, like your history, lifestyle, habits, and goals—that it’s not really something we can fully cover over email or by texts in any way.\n\nFrom the support call alone you will gain understanding as to WHERE you've been going wrong what’s been holding them back, uncovering blind spots, or figuring out why the weight keeps coming back.\n\nWould you be open to giving the call a try? If so, which of the times I shared earlier could work for you? Also imagine how you're gonna feel in a couple of months' time when you've kept this commitment to yourself and you're well over a stone down.",
+    "who_is_this": "This is Alex Neilan from Sustainable Change... You clicked on a video of me on Facebook... you would have seen me (Red-haired Irish guy named Alex) talking about sustainable weight loss.... ring any bells? Haha\n\nP.S. Here's the link to join our free Group (in case you haven't yet :)\nhttps://www.facebook.com/groups/thesportdietitian"
+  },
+  "resources": [
+    { "name": "8 Pillars of Sustainable Weight Loss", "url": "https://bit.ly/TSD-the-8-pillars-of-sustainable-fat-loss" },
+    { "name": "Metabolism Boosting Cheat Sheet", "url": "https://bit.ly/metabolism-boosting-cheat-sheet" },
+    { "name": "Boredom & Comfort Eating Cheat Sheet", "url": "https://bit.ly/boredom-and-comfort-eating-cheat-sheet" },
+    { "name": "How to Overcome Procrastination", "url": "https://bit.ly/how-to-overcome-procrastination" },
+    { "name": "YouTube Channel (@alexneilan-sustainable-change)", "url": "https://www.youtube.com/@alexneilan-sustainable-change" },
+    { "name": "Lesley Case Study (Size 16 to 10)", "url": "https://bit.ly/How-Lesley-transfomed-from-a-size-16-to-a-10-and-overcame-self-doubt" },
+    { "name": "Amanda Case Study (Lost 5 Stone & Promoted)", "url": "https://bit.ly/how-amanda-lost-5-stone-sustainably-and-got-promoted" },
+    { "name": "Free Facebook Community", "url": "https://www.facebook.com/groups/thesportdietitian" }
+  ]
+}

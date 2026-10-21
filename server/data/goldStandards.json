@@ -1,0 +1,32 @@
+[
+  {
+    "id": "gold_1_menopause_struggle",
+    "lead_name": "Sarah",
+    "lead_snippet": "I'm 48 and honestly menopause has hit me hard. I barely sleep through the night, have no energy, and feel like my metabolism has ground to a halt.",
+    "stage": "Stage 2: Obstacle Deep Dive (Menopause)",
+    "reply_direct": "I hear you Sarah, Menopause is a common struggle among women due to hormonal changes, poor sleep and a reduced metabolic rate! In addition to that, this affects our energy levels, which results in lower motivation to make changes in our day-to-day life... Does that make sense to you? Do you feel menopause is affecting your sleep, energy levels or food choices in any way?",
+    "reply_empathetic": "I hear you Sarah, and I know how exhausting that is. When poor sleep and hormonal shifts compound, it feels like an uphill battle every single day. For clarity on your daily nutrition alongside this, could you tell me a bit more about your current food choices? What do your usual meals look like?",
+    "reply_short": "Sarah, is menopause affecting your eating habits, sleep, or energy levels the most right now?",
+    "rationale": "Directly acknowledges the severe physiological impact of menopause (sleep, metabolic rate) without dismissing her pain. Immediately bridges to whether it's influencing her nutrition or daily energy."
+  },
+  {
+    "id": "gold_2_lack_of_time",
+    "lead_name": "Karen",
+    "lead_snippet": "I work 50 hours a week as a head teacher and have two teenagers. I just don't have time to cook elaborate meals or spend hours at the gym.",
+    "stage": "Stage 2: Obstacle Deep Dive (Lack of Time & High Stress Job)",
+    "reply_direct": "I hear you Karen, and I completely get that – finding time is a real challenge when you're juggling multiple responsibilities. We all face this struggle but it is most certainly harder for women who get judged for not having a tidy house or for not having everything together, whereas there's rarely judgment if it's a man.\n\nIn addition to that, what I've learned is that investing a little time upfront to learn more efficient approaches actually saves time in the long run. Just 20 minutes 3 times a week can make a meaningful difference IF we are doing the RIGHT things. And here's what I always remind myself: if we don't make time for our health now, we will eventually be forced to make time for illness. Can you resonate with any of that? :)",
+    "reply_empathetic": "I hear you Karen, juggling a 50-hour role with teenagers means you are constantly giving to everyone else and putting yourself dead last. If we don't make time for our health now, we end up having to make time for illness later. Is your lack of time mostly from school demands, or are home responsibilities pulling you from pillar to post too?",
+    "reply_short": "Karen, is the lack of time mostly down to your school role, or are other responsibilities piling on too?",
+    "rationale": "Validates the burden of being a working woman while reframing time commitment (20 mins 3x/week). Sets up job vetting to assess whether she's in an overworked/high-stress profession."
+  },
+  {
+    "id": "gold_3_cost_question",
+    "lead_name": "Linda",
+    "lead_snippet": "Before we go any further, how much does your programme cost? I can't afford anything crazy right now.",
+    "stage": "Objection Handling: Cost Concern Before Times Offered",
+    "reply_direct": "Great question Linda, but to be honest with you, it completely depends on what you need. Everything that we do is 100% personalised and tailored to that individual, everybody is different, and the reasons why you haven't been getting the results that you want will certainly be different from someone else's. What is genuinely exciting, though, is that if we can identify three or four blind spots and things that you're not seeing, and you can then go away and implement what we teach you on the call, well it makes a huge difference over time. At the very least, this will help you figure out the gaps right now in your nutrition, training, or your behavioural patterns and give you some free advice over the phone. Does that sound fair?",
+    "reply_empathetic": "Totally understand why you'd ask Linda! We keep things 100% transparent. Everything we do is completely tailored, which is why the 1-on-1 support call is completely free — we first diagnose where you've been going wrong and uncover your blind spots. If and only if we both feel it's a good fit, we can talk about what ongoing support looks like. Does that sound fair?",
+    "reply_short": "Great question Linda! To be honest it completely depends on what you need since everything is 100% personalized. The first diagnostic support call is completely free with no obligation at all. Does that sound fair?",
+    "rationale": "De-escalates price pressure by explaining personalization and clarifying that the diagnostic call itself is 100% complimentary."
+  }
+]
