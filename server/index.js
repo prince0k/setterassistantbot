@@ -169,6 +169,10 @@ app.get('/api/history', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Setter Assistant Backend running on http://localhost:${PORT}`);
-});
+export default app;
+
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Setter Assistant Backend running on http://localhost:${PORT}`);
+  });
+}
