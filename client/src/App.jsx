@@ -4,9 +4,14 @@ import Scratchpad from './components/Scratchpad';
 import SpinManager from './components/SpinManager';
 import GoldStandards from './components/GoldStandards';
 import SettingsModal from './components/SettingsModal';
+import LoginPage from './components/LoginPage';
 import { fetchHealth, fetchSpin, fetchGoldStandards } from './api';
+import { supabase } from './supabaseClient';
 
 export default function App() {
+  const [session, setSession] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
   const [activeTab, setActiveTab] = useState('scratchpad');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [currentModel, setCurrentModel] = useState('gemini-2.5-flash');
@@ -14,6 +19,23 @@ export default function App() {
   const [spin, setSpin] = useState(null);
   const [goldStandards, setGoldStandards] = useState([]);
   const [backendConnected, setBackendConnected] = useState(false);
+
+  // Monitor Supabase Auth state
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setAuthLoading(false);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      setAuthLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const loadData = async () => {
     try {
@@ -33,18 +55,41 @@ export default function App() {
   };
 
   useEffect(() => {
-    loadData();
-    const interval = setInterval(async () => {
-      try {
-        await fetchHealth();
-        setBackendConnected(true);
-      } catch {
-        setBackendConnected(false);
-      }
-    }, 15000);
-    return () => clearInterval(interval);
-  }, []);
+    if (session) {
+      loadData();
+      const interval = setInterval(async () => {
+        try {
+          await fetchHealth();
+          setBackendConnected(true);
+        } catch {
+          setBackendConnected(false);
+        }
+      }, 15000);
+      return () => clearInterval(interval);
+    }
+  }, [session]);
 
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setSession(null);
+  };
+
+  // Auth Loading Screen
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-[#f8fafc] flex flex-col items-center justify-center gap-3">
+        <div className="w-8 h-8 border-3 border-emerald-600 border-t-transparent rounded-full animate-spin" />
+        <span className="text-xs font-medium text-slate-500">Checking setter session...</span>
+      </div>
+    );
+  }
+
+  // If not logged in, show Login Screen
+  if (!session) {
+    return <LoginPage onLoginSuccess={(sess) => setSession(sess)} />;
+  }
+
+  // Authenticated Setter Dashboard
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-900 flex flex-col selection:bg-emerald-500 selection:text-white">
       {/* Top Header matching reference image */}
@@ -54,6 +99,8 @@ export default function App() {
         onOpenSettings={() => setIsSettingsOpen(true)}
         currentModel={currentModel}
         backendConnected={backendConnected}
+        user={session.user}
+        onLogout={handleLogout}
       />
 
       {/* Main Tab Content */}

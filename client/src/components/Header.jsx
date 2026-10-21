@@ -1,12 +1,14 @@
 import React from 'react';
-import { Sparkles, Settings, BookOpen, MessageSquare, Award, ChevronRight, Zap, Bookmark } from 'lucide-react';
+import { Sparkles, Settings, BookOpen, MessageSquare, Award, ChevronRight, Zap, LogOut, User } from 'lucide-react';
 
 export default function Header({
   activeTab,
   setActiveTab,
   onOpenSettings,
   currentModel,
-  backendConnected
+  backendConnected,
+  user,
+  onLogout
 }) {
   return (
     <header className="border-b border-slate-200 bg-white sticky top-0 z-40 shadow-xs">
@@ -112,6 +114,23 @@ export default function Header({
           >
             <Settings className="w-4 h-4" />
           </button>
+
+          {/* User Profile & Logout */}
+          {user && (
+            <div className="flex items-center gap-1.5 pl-1 border-l border-slate-200">
+              <span className="text-xs text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-xl max-w-[140px] truncate font-medium flex items-center gap-1" title={user.email}>
+                <User className="w-3 h-3 text-slate-400 shrink-0" />
+                <span className="truncate">{user.email?.split('@')[0]}</span>
+              </span>
+              <button
+                onClick={onLogout}
+                className="p-2 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 border border-slate-200 bg-white transition-colors cursor-pointer"
+                title="Log Out of Setter Portal"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>
