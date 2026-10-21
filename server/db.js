@@ -15,8 +15,40 @@ const HISTORY_FILE = path.join(DATA_DIR, 'history.json');
 let supabase = null;
 if (process.env.SUPABASE_URL && process.env.SUPABASE_KEY) {
   try {
-    supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
-    console.log('Connected to Supabase PostgreSQL database');
+    const cleanUrl = process.env.SUPABASE_URL.replace(/\/rest\/v1\/?$/, '').replace(/\/$/, '');
+    supabase = createClient(cleanUrl, process.env.SUPABASE_KEY);
+    console.log('Connected to Supabase PostgreSQL database:', cleanUrl);
+
+    // Auto-seed initial spin and gold standards if cloud database is empty
+    setTimeout(async () => {
+      try {
+        const { data: existingSpin } = await supabase.from('spins').select('id').eq('id', 'default').maybeSingle();
+        if (!existingSpin) {
+          const localSpin = await readJson(SPIN_FILE, {});
+          if (localSpin && localSpin.title) {
+            console.log('Seeding initial Alex Neilan Spin into Supabase...');
+            await supabase.from('spins').upsert({
+              id: 'default',
+              title: localSpin.title,
+              author: localSpin.author,
+              content: localSpin,
+              updated_at: new Date().toISOString()
+            });
+          }
+        }
+
+        const { data: existingGold } = await supabase.from('gold_standards').select('id').limit(1);
+        if (!existingGold || existingGold.length === 0) {
+          const localGold = await readJson(GOLD_FILE, []);
+          if (localGold && localGold.length > 0) {
+            console.log(`Seeding ${localGold.length} Gold Standards into Supabase...`);
+            await supabase.from('gold_standards').upsert(localGold);
+          }
+        }
+      } catch (seedErr) {
+        console.warn('Supabase auto-seed notice:', seedErr.message);
+      }
+    }, 1000);
   } catch (err) {
     console.warn('Could not initialize Supabase, using local JSON storage:', err.message);
   }
